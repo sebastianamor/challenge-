@@ -81,6 +81,7 @@ foreach (string name in studentNames)
     }
 
     currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments;
+    
 
     if (currentStudentGrade >= 97)
         currentStudentLetterGrade = "A+";
@@ -124,7 +125,7 @@ foreach (string name in studentNames)
     // Student         Grade
     // Sophia:         92.2    A-
     
-    Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}\t{sumAssignmentScores}");
+    Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}\t{currentStudentGrade}(pts)");
 }
 
 
