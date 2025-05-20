@@ -65,6 +65,10 @@ foreach (string name in studentNames)
 
     int gradedAssignments = 0;
 
+    
+
+
+
     /* 
     the inner foreach loop sums assignment scores
     extra credit assignments are worth 10% of an exam score
@@ -80,8 +84,8 @@ foreach (string name in studentNames)
             sumAssignmentScores += score / 10;
     }
 
-    currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments;
-    
+    currentStudentGrade = (decimal) (sumAssignmentScores) / examAssignments;
+
 
     if (currentStudentGrade >= 97)
         currentStudentLetterGrade = "A+";
@@ -126,7 +130,7 @@ foreach (string name in studentNames)
     // Sophia:         92.2    A-
 
     
-    Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}\t{ studentScores }(pts)");
+    Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}\t{ gradedAssignments }(pts)");
 }
 
 
