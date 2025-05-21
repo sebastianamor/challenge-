@@ -33,107 +33,71 @@ string currentStudentLetterGrade = "";
 
 // display the header row for scores/grades
 Console.Clear();
-Console.WriteLine("Student\t\tExam Score\tOverall Grade\tExtra Credit\n ");
+Console.WriteLine("Student\t\tExam Score\tOverall Grade\tBonus (10%)\tFinal Grade\tGrade\n");
 
-/*
-The outer foreach loop is used to:
-- iterate through student names 
-- assign a student's grades to the studentScores array
-- sum assignment scores (inner foreach loop)
-- calculate numeric and letter grade
-- write the score report information
-*/
 foreach (string name in studentNames)
 {
     string currentStudent = name;
 
     if (currentStudent == "Sophia")
         studentScores = sophiaScores;
-
     else if (currentStudent == "Andrew")
         studentScores = andrewScores;
-
     else if (currentStudent == "Emma")
         studentScores = emmaScores;
-
     else if (currentStudent == "Logan")
         studentScores = loganScores;
 
     int sumAssignmentScores = 0;
-
     decimal currentStudentGrade = 0;
-
     int gradedAssignments = 0;
 
-    
-
-
-
-    /* 
-    the inner foreach loop sums assignment scores
-    extra credit assignments are worth 10% of an exam score
-    */
     foreach (int score in studentScores)
     {
         gradedAssignments += 1;
 
         if (gradedAssignments <= examAssignments)
             sumAssignmentScores += score;
-
         else
             sumAssignmentScores += score / 10;
     }
 
-    currentStudentGrade = (decimal) (sumAssignmentScores) / examAssignments;
+    currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments;
+    
+    // Calculate 10% bonus
+    decimal bonus = currentStudentGrade + 0.00m;
+    decimal finalGradeWithBonus = currentStudentGrade + bonus;
 
-
-    if (currentStudentGrade >= 97)
+    // Determine letter grade based on final grade with bonus
+    if (finalGradeWithBonus >= 97)
         currentStudentLetterGrade = "A+";
-
-    else if (currentStudentGrade >= 93)
+    else if (finalGradeWithBonus >= 93)
         currentStudentLetterGrade = "A";
-
-    else if (currentStudentGrade >= 90)
+    else if (finalGradeWithBonus >= 90)
         currentStudentLetterGrade = "A-";
-
-    else if (currentStudentGrade >= 87)
+    else if (finalGradeWithBonus >= 87)
         currentStudentLetterGrade = "B+";
-
-    else if (currentStudentGrade >= 83)
+    else if (finalGradeWithBonus >= 83)
         currentStudentLetterGrade = "B";
-
-    else if (currentStudentGrade >= 80)
+    else if (finalGradeWithBonus >= 80)
         currentStudentLetterGrade = "B-";
-
-    else if (currentStudentGrade >= 77)
+    else if (finalGradeWithBonus >= 77)
         currentStudentLetterGrade = "C+";
-
-    else if (currentStudentGrade >= 73)
+    else if (finalGradeWithBonus >= 73)
         currentStudentLetterGrade = "C";
-
-    else if (currentStudentGrade >= 70)
+    else if (finalGradeWithBonus >= 70)
         currentStudentLetterGrade = "C-";
-
-    else if (currentStudentGrade >= 67)
+    else if (finalGradeWithBonus >= 67)
         currentStudentLetterGrade = "D+";
-
-    else if (currentStudentGrade >= 63)
+    else if (finalGradeWithBonus >= 63)
         currentStudentLetterGrade = "D";
-
-    else if (currentStudentGrade >= 60)
+    else if (finalGradeWithBonus >= 60)
         currentStudentLetterGrade = "D-";
-
     else
         currentStudentLetterGrade = "F";
 
-    // Student         Grade
-    // Sophia:         92.2    A-
-
-    
-    Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade:f1}\t\t{currentStudentLetterGrade} \t{(int)currentStudentGrade}(pts)");
+    Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade:f1}\t\t{finalGradeWithBonus:f1}\t\t{bonus:f1}\t\t{finalGradeWithBonus:f1}\t\t{currentStudentLetterGrade}");
 }
 
-
-// required for running in VS Code (keeps the Output windows open to view results)
 Console.WriteLine("\n\rPress the Enter key to continue");
 Console.ReadLine();
