@@ -130,7 +130,7 @@ foreach (string name in studentNames)
     // Sophia:         92.2    A-
 
     
-    Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}\t{ gradedAssignments }(pts)");
+    Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade:f1}\t\t{currentStudentLetterGrade} \t{(int)currentStudentGrade}(pts)");
 }
 
 
