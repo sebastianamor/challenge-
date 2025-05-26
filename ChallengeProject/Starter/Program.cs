@@ -65,7 +65,7 @@ foreach (string name in studentNames)
     currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments;
     
     // Calculate 10% bonus
-    decimal bonus = currentStudentGrade * 0.09m;
+    decimal bonus = currentStudentGrade * -0.01m;
     decimal finalGradeWithBonus = currentStudentGrade + bonus;
 
     // Determine letter grade based on final grade with bonus
